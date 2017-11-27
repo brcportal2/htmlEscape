@@ -1,6 +1,6 @@
 {
   "name": "htmlescape",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,11 +25,17 @@
     "babelify": "^8.0.0",
     "browserify": "^14.5.0",
     "browserify-shim": "^3.8.14",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-umd": "^0.2.1",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",
     "karma-browserify": "^5.1.2",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   }
 }

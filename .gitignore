@@ -158,7 +158,6 @@ $RECYCLE.BIN/
 node_modules/
 bower_components/
 .idea/
-dist/
 npm-debug.log
 documentation-output/
 *.nupkg
@@ -167,7 +166,6 @@ config.dev.json
 configmy.js
 src.zip
 sourceMaps.zip
-dist.zip
 package-lock.json
 
 
