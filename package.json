@@ -1,9 +1,10 @@
 {
   "name": "htmlescape",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/HtmlEscape.js",
   "scripts": {
+    "build": "gulp",
     "test": "karma start --log-level warn --single-run"
   },
   "repository": {
@@ -33,9 +34,8 @@
     "karma": "^1.7.1",
     "karma-browserify": "^5.1.2",
     "karma-chrome-launcher": "^2.2.0",
+    "karma-ie-launcher": "^1.0.0",
     "karma-jasmine": "^1.1.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   }
 }

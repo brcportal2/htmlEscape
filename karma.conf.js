@@ -1,6 +1,3 @@
-// Karma configuration
-// Generated on Mon Nov 27 2017 13:36:11 GMT+0500 (RTZ 4 (зима))
-
 module.exports = function(config) {
   config.set({
 
@@ -27,6 +24,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      "test/**/*.spec.js": ['browserify']
     },
 
 
@@ -55,7 +53,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'IE'],
 
 
     // Continuous Integration mode
@@ -66,11 +64,7 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
-    logLevel: config.LOG_INFO,
 
-    preprocessors: {
-         "test/**/*.spec.js": ['browserify']
-    },
 
     browserify: {
         debug: true,

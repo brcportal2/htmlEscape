@@ -1,4 +1,5 @@
-import {HTML, escape, URLProtocolFilter} from '../index.js'
+import HTML from '../dist/HtmlEscape'
+
 
 describe('XSS', () => {
 
@@ -7,7 +8,7 @@ describe('XSS', () => {
 		document.body.appendChild(div);
 		div.innerHTML = text;
 		return div;
-	}
+	};
 	
 	
 	describe('script tag', () => {
@@ -76,7 +77,7 @@ describe('XSS', () => {
 		
 		const badURL = `javascript:window.open();`;
 		const goodURL = `http://google.ru`;
-		const filterURL = new URLProtocolFilter("http", "https", "ftp", "mailto");
+		const filterURL = new HTML.URLProtocolFilter("http", "https", "ftp", "mailto");
 		
 		it('simple template should pass js', () => {
 			const template = `<a href="${badURL}"></a>`;
@@ -106,7 +107,7 @@ describe('XSS', () => {
 		const badValue = `'); doXss('xss'); void('`;
 		
 		it('simple template should break value', () => {
-			let clickValue, xssValue;
+			let clickValue = null, xssValue = null;
 			window.passClick = v => clickValue = v;
 			window.doXss = v => xssValue = v;
 			const template = `<a onclick="passClick('${badValue}')"></a>`;
@@ -117,14 +118,14 @@ describe('XSS', () => {
 		});
 		
 		it('HTML template should escape value', () => {
-			let clickValue, xssValue;
+			let clickValue = null, xssValue = null;
 			window.passClick = v => clickValue = v;
 			window.doXss = v => xssValue = v;
-			const template = HTML `<a onclick="passClick(${escape(badValue)})"></a>`;
+			const template = HTML `<a onclick="passClick(${HTML.escapeValue(badValue)})"></a>`;
 			const div = compileAndInsert(template);
 			const anchor = div.querySelector("a");
 			anchor.click();
-			expect(xssValue).toBe(undefined);
+			expect(xssValue).toBe(null);
 			expect(clickValue).toBe(badValue);
 		});
 	
