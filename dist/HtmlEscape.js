@@ -31,6 +31,7 @@ function URLProtocolFilter() {
     var validProtocols = Array.prototype.slice.call(arguments);
 
     function isValidURL(url){
+        if (!url) return false;
         try {
             var a = document.createElement('a');
             a.href = url;
